@@ -1,14 +1,13 @@
+#ifndef _ANNOUNCEHANDLER
+#define _ANNOUNCEHANDLER
 #pragma once
-#include <cpprest/json.h>
 
-using namespace web;
-using namespace utility::conversions;
-
-class scriptEngine;
-class scriptEngineResult;
+#include "stdafx.h"
 
 class announceHandler
-{
-public:
-	static void Register(scriptEngine* scriptEngine);
+	{
+	public:
+		static void Register();
 };
+
+#endif

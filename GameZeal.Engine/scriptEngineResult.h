@@ -1,13 +1,17 @@
+#ifndef _SCRIPT_ENGINERESULT
+#define _SCRIPT_ENGINERESULT
+
 #pragma once
-#include <string>
-#include <cpprest/json.h>
+
+#include "stdafx.h"
 
 class scriptEngineResult
 {
-public:
-	int NumericResult;
-	std::string LiteralResult;
-	bool LogicalResult;
-	web::json::value Expression;
+	public:
+		int NumericResult;
+		string LiteralResult;
+		bool LogicalResult;
+		value Expression;
 };
 
+#endif

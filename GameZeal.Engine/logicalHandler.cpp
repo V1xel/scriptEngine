@@ -1,59 +1,57 @@
-#include "logicalHandler.h"
-#include "scriptEngine.h"
+#include "stdafx.h"
 
-scriptEngineResult* GreaterThan(json::value expression)
+scriptEngineResult* GreaterThan(value expression)
 {
 	auto rez = new scriptEngineResult();
-	auto command = expression.as_object();
+	auto command = expression.ToObject();
 
-	auto left = scriptEngine::Instance->Invoke("Expression", command[U("left")])->NumericResult;
-	auto right = scriptEngine::Instance->Invoke("Expression", command[U("right")])->NumericResult;
+	auto left = scriptEngine::Instance->Invoke("Expression", command[String("left")])->NumericResult;
+	auto right = scriptEngine::Instance->Invoke("Expression", command[String("right")])->NumericResult;
 	rez->LogicalResult = left > right;
-	
+
 	return rez;
 }
 
-scriptEngineResult* NotEqual(json::value expression)
+scriptEngineResult* NotEqual(value expression)
 {
 	auto rez = new scriptEngineResult();
-	auto command = expression.as_object();
+	auto command = expression.ToObject();
 
-	auto left = scriptEngine::Instance->Invoke("Expression", command[U("left")])->NumericResult;
-	auto right = scriptEngine::Instance->Invoke("Expression", command[U("right")])->NumericResult;
+	auto left = scriptEngine::Instance->Invoke("Expression", command[String("left")])->NumericResult;
+	auto right = scriptEngine::Instance->Invoke("Expression", command[String("right")])->NumericResult;
 	rez->LogicalResult = left != right;
 
 	return rez;
 }
 
-scriptEngineResult* LowerThan(json::value expression)
+scriptEngineResult* LowerThan(value expression)
 {
 	auto rez = new scriptEngineResult();
-	auto command = expression.as_object();
+	auto command = expression.ToObject();
 
-	auto left = scriptEngine::Instance->Invoke("Expression", command[U("left")])->NumericResult;
-	auto right = scriptEngine::Instance->Invoke("Expression", command[U("right")])->NumericResult;
+	auto left = scriptEngine::Instance->Invoke("Expression", command[String("left")])->NumericResult;
+	auto right = scriptEngine::Instance->Invoke("Expression", command[String("right")])->NumericResult;
 	rez->LogicalResult = left < right;
 
 	return rez;
 }
 
-scriptEngineResult* Equal(json::value expression)
+scriptEngineResult* Equal(value expression)
 {
 	auto rez = new scriptEngineResult();
-	auto command = expression.as_object();
+	auto command = expression.ToObject();
 
-	auto left = scriptEngine::Instance->Invoke("Expression", command[U("left")])->NumericResult;
-	auto right = scriptEngine::Instance->Invoke("Expression", command[U("right")])->NumericResult;
+	auto left = scriptEngine::Instance->Invoke("Expression", command[String("left")])->NumericResult;
+	auto right = scriptEngine::Instance->Invoke("Expression", command[String("right")])->NumericResult;
 	rez->LogicalResult = left == right;
 
 	return rez;
 }
 
-void logicalHandler::Register(scriptEngine* scriptEngine)
+void logicalHandler::Register()
 {
-	typedef scriptEngineResult*(*Handler)(json::value expression);
-	scriptEngine->Handlers["GreaterThan"] = (Handler*)GreaterThan;
-	scriptEngine->Handlers["NotEqual"] = (Handler*)NotEqual;
-	scriptEngine->Handlers["LowerThan"] = (Handler*)LowerThan;
-	scriptEngine->Handlers["Equal"] = (Handler*)Equal;
+	RegisterHandler(GreaterThan);
+	RegisterHandler(NotEqual);
+	RegisterHandler(LowerThan);
+	RegisterHandler(Equal);
 }

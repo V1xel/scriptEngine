@@ -1,27 +1,25 @@
-#include "branchHandler.h"
-#include "scriptEngine.h"
+#include "stdafx.h"
 
-scriptEngineResult* Branch(json::value expression)
+scriptEngineResult* Branch(value expression)
 {
 	auto rez = new scriptEngineResult();
-	auto command = expression.as_object();
+	auto command = expression.ToObject();
 
-	auto condition = scriptEngine::Instance->Invoke("Expression", command[U("Condition")])->LogicalResult;
+	auto condition = scriptEngine::Instance->Invoke("Expression", command[String("Condition")])->LogicalResult;
 
-	if (condition && !command[U("OnTrue")].is_null())
-		return scriptEngine::Instance->Invoke("Expression", command[U("OnTrue")]);
+	if (condition && !command[String("OnTrue")].is_null())
+		return scriptEngine::Instance->Invoke("Expression", command[String("OnTrue")]);
 	
-	if(!condition && !command[U("OnFalse")].is_null())
+	if(!condition && !command[String("OnFalse")].is_null())
 	{
-		return scriptEngine::Instance->Invoke("Expression", command[U("OnFalse")]);
+		return scriptEngine::Instance->Invoke("Expression", command[String("OnFalse")]);
 	}
 
 	return nullptr;
 }
 
 
-void branchHandler::Register(scriptEngine* scriptEngine)
+void branchHandler::Register()
 {
-	typedef scriptEngineResult*(*Handler)(json::value expression);
-	scriptEngine->Handlers["Branch"] = (Handler*)Branch;
+	RegisterHandler(Branch);
 }

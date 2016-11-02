@@ -45,6 +45,9 @@
     <ClInclude Include="gameInformationProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="numericHandler.cpp">
@@ -71,7 +74,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="..\Schemas\card.json">
       <Filter>Schemas</Filter>
     </None>
@@ -96,5 +98,6 @@
     <None Include="..\Schemas\gameObjectExpression.json">
       <Filter>Schemas</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

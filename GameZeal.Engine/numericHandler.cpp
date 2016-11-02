@@ -1,25 +1,24 @@
-#include "numericHandler.h"
-#include "scriptEngine.h"
+#include "stdafx.h"
 
-scriptEngineResult* Number(json::value expression)
+scriptEngineResult* Number(value expression)
 {
 	auto rez = new scriptEngineResult();
-	rez->NumericResult = expression.as_integer();
+	rez->NumericResult = expression.ToInteger();
 	return rez;
 }
 
-scriptEngineResult* ToNumber(json::value expression)
+scriptEngineResult* ToNumber(value expression)
 {
 	scriptEngineResult* valueToConvert = nullptr;
-	for (auto value : expression.as_object())
+	for (auto value : expression.ToObject())
 	{
-		valueToConvert = scriptEngine::Instance->Invoke(to_utf8string(value.first), value.second);
+		valueToConvert = scriptEngine::Instance->Invoke(Str2UTF8(value.first), value.second);
 		break;
 	}
 
 	if(valueToConvert->LiteralResult.length() > 0)
 	{
-		valueToConvert->NumericResult = atoi(valueToConvert->LiteralResult.c_str());;
+		valueToConvert->NumericResult = StringToInteger(valueToConvert->LiteralResult.c_str());
 
 		return valueToConvert;
 	}
@@ -27,12 +26,8 @@ scriptEngineResult* ToNumber(json::value expression)
 	return nullptr;
 }
 
-void numericHandler::Register(scriptEngine* scriptEngine)
+void numericHandler::Register()
 {
-	typedef scriptEngineResult*(*Handler)(json::value expression);
-	auto v = (Handler*)Number;
-	scriptEngine->Handlers["Number"] = v;
-
-	auto v1 = (Handler*)ToNumber;
-	scriptEngine->Handlers["ToNumber"] = v1;
+	RegisterHandler(Number);
+	RegisterHandler(ToNumber);
 }

@@ -1,16 +1,14 @@
-#include "announceHandler.h"
-#include "scriptEngine.h"
+#include "stdafx.h"
 
-scriptEngineResult* Announce(json::value expression)
+scriptEngineResult* Announce(value expression)
 {
-	json::object obj = expression.as_object();
-	std::cout << to_utf8string(obj[U("EventName")].as_string()+U(" ")+ obj[U("CallerId")].as_string());
+	auto obj = expression.ToObject();
+	cout << Str2UTF8(obj[String("EventName")].ToString()+ String(" ")+ obj[String("CallerId")].ToString());
 
 	return nullptr;
 }
 
-void announceHandler::Register(scriptEngine* scriptEngine)
+void announceHandler::Register()
 {
-	typedef scriptEngineResult*(*Handler)(json::value expression);
-	scriptEngine->Handlers["Announce"] = (Handler*)Announce;
+	RegisterHandler(Announce);
 }

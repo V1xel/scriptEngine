@@ -1,24 +1,25 @@
-#include "gameObjectHandler.h"
-#include "scriptEngine.h"
+#include "stdafx.h"
 
-scriptEngineResult* GetGameObjectProperty(json::value expression)
+scriptEngineResult* GetGameObjectProperty(value expression)
 {
-	json::object obj = expression.as_object();
-	auto id = obj[U("Id")].as_integer();
-	auto propertyName = obj[U("PropertyName")].as_string();
-	auto value = scriptEngine::Instance->Invoke("Expression", obj[U("Value")]);
+	auto obj = expression.ToObject();
+	auto id = obj[String("Id")].ToInteger();
+	auto propertyName = obj[String("PropertyName")].ToString();
+	auto value = scriptEngine::Instance->Invoke("Expression", obj[String("Value")]);
 	
-	
+
+	return nullptr;
 }
 
-scriptEngineResult* SetGameObjectProperty(json::value expression)
+scriptEngineResult* SetGameObjectProperty(value expression)
 {
-	json::object obj = expression.as_object();
+	auto obj = expression.ToObject();
+
+	return nullptr;
 }
 
-void gameObjectHandler::Register(scriptEngine* scriptEngine)
+void gameObjectHandler::Register()
 {
-	typedef scriptEngineResult*(*Handler)(json::value expression);
-	scriptEngine->Handlers["GetGameObjectProperty"] = (Handler*)GetGameObjectProperty;
-	scriptEngine->Handlers["SetGameObjectProperty"] = (Handler*)SetGameObjectProperty;
+	RegisterHandler(GetGameObjectProperty);
+	RegisterHandler(SetGameObjectProperty);
 }

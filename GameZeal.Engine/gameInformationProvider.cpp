@@ -1,5 +1,4 @@
-#include "gameInformationProvider.h"
-
+#include "stdafx.h"
 
 void* gameInformationProvider::getObject(int id)
 {

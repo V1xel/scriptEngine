@@ -1,14 +1,13 @@
+#ifndef _LOGICALHANDLER
+#define _LOGICALHANDLER
 #pragma once
-#include <cpprest/json.h>
 
-using namespace web;
-using namespace utility::conversions;
+#include "stdafx.h"
 
-class scriptEngine;
-class scriptEngineResult;
 class logicalHandler
 {
 public:
-	static void Register(scriptEngine* scriptEngine);
+	static void Register();
 };
 
+#endif

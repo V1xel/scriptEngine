@@ -1,12 +1,4 @@
-#include "scriptEngine.h"
-#include "logicalHandler.h"
-#include "branchHandler.h"
-#include "announceHandler.h"
-#include "gameObjectHandler.h"
-
-
-using namespace web;
-using namespace utility::conversions;
+#include "stdafx.h"
 
 scriptEngine* scriptEngine::Instance;
 
@@ -15,38 +7,40 @@ void main()
 	scriptEngine::Instance = new scriptEngine();
 	scriptEngine::Instance->Init();
 
-	auto jsonBuilder = json::value::parse(U("{	\"Expression\":{	\"Branch\":{		\"Condition\":{	\"GreaterThan\":{		\"left\":{			\"Number\":55			},			\"right\":{		\"ToNumber\":{			\"Expression\":{		\"Literal\":\"25\"				}}	}	}	},		\"OnTrue\":{	\"Expression\":{	\"Announce\": {	\"EventName\": \"Comes to the Arena\",	\"CallerId\" : \"1\"}		}	}	}	}}"));
-	auto command = jsonBuilder[U("Expression")].as_object();
+	auto jsonBuilder = value::parse(String("{	\"Expression\":{	\"Branch\":{		\"Condition\":{	\"GreaterThan\":{		\"left\":{			\"Number\":55			},			\"right\":{		\"ToNumber\":{			\"Expression\":{		\"Literal\":\"25\"				}}	}	}	},		\"OnTrue\":{	\"Expression\":{	\"Announce\": {	\"EventName\": \"Comes to the Arena\",	\"CallerId\" : \"1\"}		}	}	}	}}"));
+	auto command = jsonBuilder[String("Expression")].ToObject();
 	for (auto value : command)
 	{
-		auto rezz = scriptEngine::Instance->Invoke(to_utf8string(value.first), value.second);
+		auto rezz = scriptEngine::Instance->Invoke(Str2UTF8(value.first), value.second);
 
 		system("pause");
 	}
 }
 
-scriptEngineResult* Expression(json::value expression)
+scriptEngineResult* Expression(value expression)
 {
-	json::object command = expression.as_object();
-	for (auto value : command)
-		return scriptEngine::Instance->Invoke(to_utf8string(value.first), value.second);
+	auto command = expression.ToObject();
+
+	for (auto item : command) {
+		return scriptEngine::Instance->Invoke(Str2UTF8(item.first), item.second);
+	}
+
+	return nullptr;
 }
 
 void scriptEngine::Init()
 {
-	typedef scriptEngineResult*(*Handler)(json::value expression);
-	auto v = (Handler*)Expression;
-	scriptEngine::Instance->Handlers["Expression"] = v;
+	RegisterHandler(Expression);
 
-	numericHandler::Register(this);
-	literalHandler::Register(this);
-	logicalHandler::Register(this);
-	branchHandler::Register(this);
-	announceHandler::Register(this);
-	gameObjectHandler::Register(this);
+	numericHandler::Register();
+	literalHandler::Register();
+	logicalHandler::Register();
+	branchHandler::Register();
+	announceHandler::Register();
+	gameObjectHandler::Register();
 }
 
-scriptEngineResult* scriptEngine::Invoke(std::string command, json::value expression)
+scriptEngineResult* scriptEngine::Invoke(string command, value expression)
 {
 	auto handlerPtr = Handlers.find(command)->second;
 
