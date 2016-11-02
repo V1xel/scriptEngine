@@ -7,11 +7,14 @@
 
 class scriptEngineResult
 {
-	public:
+public:
+		enum class ResultType { Literal, Numeric, Logical, Expr };
+
 		int NumericResult;
 		string LiteralResult;
 		bool LogicalResult;
 		value Expression;
+		ResultType Type;
 };
 
 #endif
