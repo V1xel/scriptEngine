@@ -8,15 +8,11 @@
         "ToLiteral": {
             "description": "Convert object to number",
             "type": "object",
-            "properties": {
-                "ToNumber": {
-                    "oneOf": [
-                        {
-                            "$ref": "expressions.json#"
-                        }
-                    ]
+            "oneOf": [
+                {
+                    "$ref": "expressions.json#"
                 }
-            }
+            ]
         }
     }
 }

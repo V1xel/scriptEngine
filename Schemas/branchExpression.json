@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "properties": {
+        "Branch": {
+            "type": "object",
+            "properties": {
+                "Condition": {
+                    "oneOf": [
+                        {
+                            "$ref": "logicalExpression.json#"
+                        }
+                    ]
+                }
+            },
+            "anyOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "OnTrue": {
+                            "type": "object",
+                            "oneOf": [
+                                {
+                                    "$ref": "expressions.json#"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "OnFalse": {
+                            "type": "object",
+                            "oneOf": [
+                                {
+                                    "$ref": "expressions.json#"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

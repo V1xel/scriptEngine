@@ -1,12 +1,25 @@
 {
     "$schema": "./expressions.json",
     "Expression": {
-        "GreaterThan": {
-            "left": {
-                "Number": 5
+        "Branch": {
+            "Condition": {
+                "GreaterThan": {
+                    "left": {
+                        "Number": 5
+                    },
+                    "right": {
+                        "ToNumber": {
+                            "Expression": {
+                                "Literal": "25"
+                            }
+                        }
+                    }
+                }
             },
-            "right": {
-                "Number": 3
+            "OnTrue": {
+                "Expression": {
+                    "Number": 255
+                }
             }
         }
     }

@@ -33,6 +33,9 @@
     <ClInclude Include="scriptEngineResult.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="branchHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="numericHandler.cpp">
@@ -45,6 +48,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="scriptEngine.cpp" />
+    <ClCompile Include="branchHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -61,6 +67,9 @@
       <Filter>Schemas</Filter>
     </None>
     <None Include="..\Schemas\numericExpression.json">
+      <Filter>Schemas</Filter>
+    </None>
+    <None Include="..\Schemas\branchExpression.json">
       <Filter>Schemas</Filter>
     </None>
   </ItemGroup>

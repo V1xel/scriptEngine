@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="branchHandler.h" />
     <ClInclude Include="literalHandler.h" />
     <ClInclude Include="logicalHandler.h" />
     <ClInclude Include="numericHandler.h" />
@@ -153,12 +154,14 @@
     <ClInclude Include="scriptEngineResult.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="branchHandler.cpp" />
     <ClCompile Include="literalHandler.cpp" />
     <ClCompile Include="logicalHandler.cpp" />
     <ClCompile Include="numericHandler.cpp" />
     <ClCompile Include="scriptEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Schemas\branchExpression.json" />
     <None Include="..\Schemas\card.json" />
     <None Include="..\Schemas\expressions.json" />
     <None Include="..\Schemas\literalExpression.json" />

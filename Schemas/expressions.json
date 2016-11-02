@@ -6,7 +6,8 @@
             "oneOf": [
                 { "$ref": "numericExpression.json#" },
                 { "$ref": "literalExpression.json#" },
-                { "$ref": "logicalExpression.json#" }
+                { "$ref": "logicalExpression.json#" },
+                { "$ref": "branchExpression.json#" }
             ],
             "type": "object"
         }
