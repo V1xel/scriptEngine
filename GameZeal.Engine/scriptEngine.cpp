@@ -1,5 +1,6 @@
 #include "scriptEngine.h"
 #include "logicalHandler.h"
+#include "branchHandler.h"
 
 
 using namespace web;
@@ -12,7 +13,7 @@ void main()
 	scriptEngine::Instance = new scriptEngine();
 	scriptEngine::Instance->Init();
 
-	auto jsonBuilder = json::value::parse(U("{\"Expression\": {\"GreaterThan\": {\"left\": {\"Number\": 5},\"right\" : {\"Number\": 3} }	}}"));
+	auto jsonBuilder = json::value::parse(U("{	\"Expression\":{	\"Branch\":{		\"Condition\":{	\"GreaterThan\":{		\"left\":{			\"Number\":55			},			\"right\":{		\"ToNumber\":{			\"Expression\":{		\"Literal\":\"25\"				}}	}	}	},		\"OnTrue\":{	\"Expression\":{	\"Number\":255		}	}	}	}}"));
 	auto command = jsonBuilder[U("Expression")].as_object();
 	for (auto value : command)
 	{
@@ -38,6 +39,7 @@ void scriptEngine::Init()
 	numericHandler::Register(this);
 	literalHandler::Register(this);
 	logicalHandler::Register(this);
+	branchHandler::Register(this);
 }
 
 scriptEngineResult* scriptEngine::Invoke(std::string command, json::value expression)

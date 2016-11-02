@@ -8,6 +8,6 @@ public:
 	int NumericResult;
 	std::string LiteralResult;
 	bool LogicalResult;
-	web::json::value* Expression = nullptr;
+	web::json::value Expression;
 };
 
