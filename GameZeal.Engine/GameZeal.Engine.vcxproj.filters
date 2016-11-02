@@ -36,6 +36,9 @@
     <ClInclude Include="branchHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="announceHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="numericHandler.cpp">
@@ -49,6 +52,9 @@
     </ClCompile>
     <ClCompile Include="scriptEngine.cpp" />
     <ClCompile Include="branchHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="announceHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -70,6 +76,9 @@
       <Filter>Schemas</Filter>
     </None>
     <None Include="..\Schemas\branchExpression.json">
+      <Filter>Schemas</Filter>
+    </None>
+    <None Include="..\Schemas\announceExpression.json">
       <Filter>Schemas</Filter>
     </None>
   </ItemGroup>

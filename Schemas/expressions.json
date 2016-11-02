@@ -7,7 +7,8 @@
                 { "$ref": "numericExpression.json#" },
                 { "$ref": "literalExpression.json#" },
                 { "$ref": "logicalExpression.json#" },
-                { "$ref": "branchExpression.json#" }
+                { "$ref": "branchExpression.json#" },
+                { "$ref": "announceExpression.json#" }
             ],
             "type": "object"
         }

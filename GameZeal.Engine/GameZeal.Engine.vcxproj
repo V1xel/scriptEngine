@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="announceHandler.h" />
     <ClInclude Include="branchHandler.h" />
     <ClInclude Include="literalHandler.h" />
     <ClInclude Include="logicalHandler.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="scriptEngineResult.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="announceHandler.cpp" />
     <ClCompile Include="branchHandler.cpp" />
     <ClCompile Include="literalHandler.cpp" />
     <ClCompile Include="logicalHandler.cpp" />
@@ -161,6 +163,7 @@
     <ClCompile Include="scriptEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Schemas\announceExpression.json" />
     <None Include="..\Schemas\branchExpression.json" />
     <None Include="..\Schemas\card.json" />
     <None Include="..\Schemas\expressions.json" />
@@ -179,4 +182,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.2.8.0\build\native\cpprestsdk.v140.windesktop.msvcstl.dyn.rt-dyn.targets'))" />
   </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties __JSONSchema="expressions.json" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

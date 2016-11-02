@@ -1,6 +1,7 @@
 #include "scriptEngine.h"
 #include "logicalHandler.h"
 #include "branchHandler.h"
+#include "announceHandler.h"
 
 
 using namespace web;
@@ -13,7 +14,7 @@ void main()
 	scriptEngine::Instance = new scriptEngine();
 	scriptEngine::Instance->Init();
 
-	auto jsonBuilder = json::value::parse(U("{	\"Expression\":{	\"Branch\":{		\"Condition\":{	\"GreaterThan\":{		\"left\":{			\"Number\":55			},			\"right\":{		\"ToNumber\":{			\"Expression\":{		\"Literal\":\"25\"				}}	}	}	},		\"OnTrue\":{	\"Expression\":{	\"Number\":255		}	}	}	}}"));
+	auto jsonBuilder = json::value::parse(U("{	\"Expression\":{	\"Branch\":{		\"Condition\":{	\"GreaterThan\":{		\"left\":{			\"Number\":55			},			\"right\":{		\"ToNumber\":{			\"Expression\":{		\"Literal\":\"25\"				}}	}	}	},		\"OnTrue\":{	\"Expression\":{	\"Announce\": {	\"EventName\": \"Comes to the Arena\",	\"CallerId\" : \"1\"}		}	}	}	}}"));
 	auto command = jsonBuilder[U("Expression")].as_object();
 	for (auto value : command)
 	{
@@ -40,6 +41,7 @@ void scriptEngine::Init()
 	literalHandler::Register(this);
 	logicalHandler::Register(this);
 	branchHandler::Register(this);
+	announceHandler::Register(this);
 }
 
 scriptEngineResult* scriptEngine::Invoke(std::string command, json::value expression)

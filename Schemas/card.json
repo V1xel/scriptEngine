@@ -1,4 +1,5 @@
 {
+    "$schema": "./expressions.json",
     "Expression": {
         "Branch": {
             "Condition": {
@@ -17,7 +18,10 @@
             },
             "OnTrue": {
                 "Expression": {
-                    "Number": 255
+                    "Announce": {
+                        "EventName": "Comes to the Arena",
+                        "CallerId": 1
+                    }
                 }
             }
         }
