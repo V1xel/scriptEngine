@@ -1,0 +1,22 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "properties": {
+        "Literal": {
+            "type": "string"
+        },
+        "ToLiteral": {
+            "description": "Convert object to number",
+            "type": "object",
+            "properties": {
+                "ToNumber": {
+                    "oneOf": [
+                        {
+                            "$ref": "expressions.json#"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

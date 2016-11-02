@@ -1,0 +1,56 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "properties": {
+        "GreaterThan": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "logicalExpression.json#/NumericPrimitive"
+                }
+            ]
+        },
+        "LowerThan": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "logicalExpression.json#/NumericPrimitive"
+                }
+            ]
+        },
+        "Equal": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "logicalExpression.json#/NumericPrimitive"
+                }
+            ]
+        },
+        "NotEqual": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "logicalExpression.json#/NumericPrimitive"
+                }
+            ]
+        }
+    },
+    "NumericPrimitive": {
+        "properties": {
+            "left": {
+                "oneOf": [
+                    {
+                        "$ref": "numericExpression.json#"
+                    }
+                ]
+            },
+            "right": {
+                "oneOf": [
+                    {
+                        "$ref": "numericExpression.json#"
+                    }
+                ]
+            }
+        }
+    }
+}

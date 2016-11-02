@@ -1,0 +1,13 @@
+{
+    "$schema": "./expressions.json",
+    "Expression": {
+        "GreaterThan": {
+            "left": {
+                "Number": 5
+            },
+            "right": {
+                "Number": 3
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "properties": {
+        "Expression": {
+            "description": "Default expression of any type",
+            "oneOf": [
+                { "$ref": "numericExpression.json#" },
+                { "$ref": "literalExpression.json#" },
+                { "$ref": "logicalExpression.json#" }
+            ],
+            "type": "object"
+        }
+    },
+    "type": "object"
+}
