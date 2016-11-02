@@ -1,7 +1,18 @@
 #include "gameInformationProvider.h"
+#include <iostream>
 
 
-void* gameInformationProvider::getObject(int id)
+std::string gameInformationProvider::getObjectProperty(int id, std::string propertyName)
 {
-	return nullptr;
+	return std::string("Arena");
+}
+
+void gameInformationProvider::setObjectProperty(int id, std::string propertyName, std::string value)
+{
+	std::cout << "setting " + propertyName + " : " + value;
+}
+
+void gameInformationProvider::setObjectProperty(int id, std::string propertyName, int value)
+{
+	std::cout << "setting " + propertyName + " : " + std::to_string(value);
 }

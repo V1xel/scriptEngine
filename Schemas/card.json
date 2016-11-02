@@ -19,6 +19,7 @@
             "OnTrue": {
                 "Expression": {
                     "SetGameObjectProperty": {
+                        "Id": 1,
                         "PropertyName": "Location",
                         "Value": {
                             "Expression": {

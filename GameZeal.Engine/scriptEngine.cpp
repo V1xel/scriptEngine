@@ -15,7 +15,7 @@ void main()
 	scriptEngine::Instance = new scriptEngine();
 	scriptEngine::Instance->Init();
 
-	auto jsonBuilder = json::value::parse(U("{	\"Expression\":{	\"Branch\":{		\"Condition\":{	\"GreaterThan\":{		\"left\":{			\"Number\":55			},			\"right\":{		\"ToNumber\":{			\"Expression\":{		\"Literal\":\"25\"				}}	}	}	},		\"OnTrue\":{	\"Expression\":{	\"Announce\": {	\"EventName\": \"Comes to the Arena\",	\"CallerId\" : \"1\"}		}	}	}	}}"));
+	auto jsonBuilder = json::value::parse(U("{	\"Expression\":{	\"Branch\":{		\"Condition\":{	\"GreaterThan\":{		\"left\":{			\"Number\":55			},			\"right\":{		\"ToNumber\":{			\"Expression\":{		\"Literal\":\"25\"				}}	}	}	},		\"OnTrue\":{	\"Expression\":{	\"SetGameObjectProperty\": { \"Id\":1,   \"PropertyName\": \"Location\",		\"Value\" : {		\"Expression\": {		\"Literal\": \"Arena\"	}	}}		}	}	}	}}"));
 	auto command = jsonBuilder[U("Expression")].as_object();
 	for (auto value : command)
 	{

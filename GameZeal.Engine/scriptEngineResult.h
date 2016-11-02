@@ -5,9 +5,12 @@
 class scriptEngineResult
 {
 public:
+	enum class ResultType { Literal, Numeric, Logical, Expr };
+
 	int NumericResult;
 	std::string LiteralResult;
 	bool LogicalResult;
-	web::json::value Expression;
+	json::value Expression;
+	ResultType Type;
 };
 
