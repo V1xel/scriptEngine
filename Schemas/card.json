@@ -18,9 +18,13 @@
             },
             "OnTrue": {
                 "Expression": {
-                    "Announce": {
-                        "EventName": "Comes to the Arena",
-                        "CallerId": 1
+                    "SetGameObjectProperty": {
+                        "PropertyName": "Location",
+                        "Value": {
+                            "Expression": {
+                                "Literal": "Arena"
+                            }
+                        }
                     }
                 }
             }

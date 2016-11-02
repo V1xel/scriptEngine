@@ -2,6 +2,7 @@
 #include "logicalHandler.h"
 #include "branchHandler.h"
 #include "announceHandler.h"
+#include "gameObjectHandler.h"
 
 
 using namespace web;
@@ -42,6 +43,7 @@ void scriptEngine::Init()
 	logicalHandler::Register(this);
 	branchHandler::Register(this);
 	announceHandler::Register(this);
+	gameObjectHandler::Register(this);
 }
 
 scriptEngineResult* scriptEngine::Invoke(std::string command, json::value expression)

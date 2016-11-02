@@ -39,6 +39,12 @@
     <ClInclude Include="announceHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="gameObjectHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameInformationProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="numericHandler.cpp">
@@ -55,6 +61,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="announceHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameObjectHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameInformationProvider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -79,6 +91,9 @@
       <Filter>Schemas</Filter>
     </None>
     <None Include="..\Schemas\announceExpression.json">
+      <Filter>Schemas</Filter>
+    </None>
+    <None Include="..\Schemas\gameObjectExpression.json">
       <Filter>Schemas</Filter>
     </None>
   </ItemGroup>

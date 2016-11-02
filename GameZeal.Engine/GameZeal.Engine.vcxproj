@@ -148,6 +148,8 @@
   <ItemGroup>
     <ClInclude Include="announceHandler.h" />
     <ClInclude Include="branchHandler.h" />
+    <ClInclude Include="gameInformationProvider.h" />
+    <ClInclude Include="gameObjectHandler.h" />
     <ClInclude Include="literalHandler.h" />
     <ClInclude Include="logicalHandler.h" />
     <ClInclude Include="numericHandler.h" />
@@ -157,6 +159,8 @@
   <ItemGroup>
     <ClCompile Include="announceHandler.cpp" />
     <ClCompile Include="branchHandler.cpp" />
+    <ClCompile Include="gameInformationProvider.cpp" />
+    <ClCompile Include="gameObjectHandler.cpp" />
     <ClCompile Include="literalHandler.cpp" />
     <ClCompile Include="logicalHandler.cpp" />
     <ClCompile Include="numericHandler.cpp" />
@@ -167,6 +171,7 @@
     <None Include="..\Schemas\branchExpression.json" />
     <None Include="..\Schemas\card.json" />
     <None Include="..\Schemas\expressions.json" />
+    <None Include="..\Schemas\gameObjectExpression.json" />
     <None Include="..\Schemas\literalExpression.json" />
     <None Include="..\Schemas\logicalExpression.json" />
     <None Include="..\Schemas\numericExpression.json" />

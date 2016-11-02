@@ -8,6 +8,7 @@
                 { "$ref": "literalExpression.json#" },
                 { "$ref": "logicalExpression.json#" },
                 { "$ref": "branchExpression.json#" },
+                { "$ref": "gameObjectExpression.json#" },
                 { "$ref": "announceExpression.json#" }
             ],
             "type": "object"
