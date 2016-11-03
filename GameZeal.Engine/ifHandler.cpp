@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-scriptEngineResult* Branch(value expression)
+scriptEngineResult* If(value expression)
 {
 	auto rez = new scriptEngineResult();
 	auto command = expression.ToObject();
@@ -19,7 +19,7 @@ scriptEngineResult* Branch(value expression)
 }
 
 
-void branchHandler::Register()
+void ifHandler::Register()
 {
-	RegisterHandler(Branch);
+	RegisterHandler(If);
 }

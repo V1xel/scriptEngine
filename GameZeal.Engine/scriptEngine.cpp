@@ -7,7 +7,10 @@ void main()
 	scriptEngine::Instance = new scriptEngine();
 	scriptEngine::Instance->Init();
 
-	auto jsonBuilder = value::parse(String("{	\"Expression\":{	\"Branch\":{		\"Condition\":{	\"GreaterThan\":{		\"left\":{			\"Number\":55			},			\"right\":{		\"ToNumber\":{			\"Expression\":{		\"Literal\":\"25\"				}}	}	}	},		\"OnTrue\":{	\"Expression\":{	\"SetGameObjectProperty\": { \"Id\":1,   \"PropertyName\": \"Location\",		\"Value\" : {		\"Expression\": {		\"Literal\": \"Arena\"	}	}}		}	}	}	}}"));
+	auto jsonBuilder = value::parse(String(
+		
+		
+		"{	\"Expression\":{	\"If\":{		\"Condition\":{	\"GreaterThan\":{		\"left\":{			\"Number\":55			},			\"right\":{		\"ToNumber\":{			\"Expression\":{		\"Literal\":\"25\"				}}	}	}	},		\"OnTrue\":{	\"Expression\":{	\"SetGameObjectProperty\": { \"Id\":1,   \"PropertyName\": \"Location\",		\"Value\" : {		\"Expression\": {		\"Literal\": \"Arena\"	}	}}		}	}	}	}}"));
 	auto command = jsonBuilder[String("Expression")].ToObject();
 
 	for (auto value : command)
@@ -35,7 +38,7 @@ void scriptEngine::Init()
 	numericHandler::Register();
 	literalHandler::Register();
 	logicalHandler::Register();
-	branchHandler::Register();
+	ifHandler::Register();
 	announceHandler::Register();
 	gameObjectHandler::Register();
 }

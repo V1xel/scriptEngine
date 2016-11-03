@@ -148,7 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="announceHandler.h" />
-    <ClInclude Include="branchHandler.h" />
+    <ClInclude Include="ifHandler.h" />
     <ClInclude Include="gameInformationProvider.h" />
     <ClInclude Include="gameObjectHandler.h" />
     <ClInclude Include="literalHandler.h" />
@@ -160,7 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="announceHandler.cpp" />
-    <ClCompile Include="branchHandler.cpp" />
+    <ClCompile Include="ifHandler.cpp" />
     <ClCompile Include="gameInformationProvider.cpp" />
     <ClCompile Include="gameObjectHandler.cpp" />
     <ClCompile Include="literalHandler.cpp" />

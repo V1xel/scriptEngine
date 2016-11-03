@@ -26,10 +26,9 @@ using namespace web::json;
 #include "scriptEngineResult.h"
 #include "scriptEngine.h"
 
-#include "branchHandler.h"
+#include "ifHandler.h"
 #include "announceHandler.h"
 #include "logicalHandler.h"
-#include "branchHandler.h"
 #include "announceHandler.h"
 #include "gameObjectHandler.h"
 #include "numericHandler.h"

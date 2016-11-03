@@ -33,9 +33,6 @@
     <ClInclude Include="scriptEngineResult.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="branchHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="announceHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -46,6 +43,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ifHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -60,9 +60,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="scriptEngine.cpp" />
-    <ClCompile Include="branchHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="announceHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -70,6 +67,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="gameInformationProvider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ifHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,10 +1,10 @@
-#ifndef _BRANCHHANDLER
-#define _BRANCHHANDLER
+#ifndef _IFHANDLER
+#define _IFHANDLER
 #pragma once
 
 #include "stdafx.h"
 
-class branchHandler
+class ifHandler
 {
 	public:
 		static void Register();
