@@ -1,51 +1,53 @@
 #include "stdafx.h"
 
-scriptEngineResult* GreaterThan(value expression)
+using namespace utilities;
+
+scriptEngineResult* GreaterThan(json expression)
 {
-	auto rez = new scriptEngineResult();
-	auto command = expression.ToObject();
+	auto result = new scriptEngineResult();
 
-	auto left = scriptEngine::Instance->Invoke("Expression", command[String("left")])->NumericResult;
-	auto right = scriptEngine::Instance->Invoke("Expression", command[String("right")])->NumericResult;
-	rez->LogicalResult = left > right;
+	int left, right;
+	tie(left, right) = GetLeftAndRight(expression);
 
-	return rez;
+	result->LogicalResult = left > right;
+
+	return result;
 }
 
-scriptEngineResult* NotEqual(value expression)
+scriptEngineResult* NotEqual(json expression)
 {
-	auto rez = new scriptEngineResult();
-	auto command = expression.ToObject();
+	auto result = new scriptEngineResult();
 
-	auto left = scriptEngine::Instance->Invoke("Expression", command[String("left")])->NumericResult;
-	auto right = scriptEngine::Instance->Invoke("Expression", command[String("right")])->NumericResult;
-	rez->LogicalResult = left != right;
+	int left, right;
+	tie(left, right) = GetLeftAndRight(expression);
 
-	return rez;
+	result->LogicalResult = left != right;
+
+	return result;
 }
 
-scriptEngineResult* LowerThan(value expression)
+scriptEngineResult* LowerThan(json expression)
 {
-	auto rez = new scriptEngineResult();
-	auto command = expression.ToObject();
+	auto result = new scriptEngineResult();
 
-	auto left = scriptEngine::Instance->Invoke("Expression", command[String("left")])->NumericResult;
-	auto right = scriptEngine::Instance->Invoke("Expression", command[String("right")])->NumericResult;
-	rez->LogicalResult = left < right;
+	int left, right;
+	tie(left, right) = GetLeftAndRight(expression);
 
-	return rez;
+	result->LogicalResult = left < right;
+
+	return result;
 }
 
-scriptEngineResult* Equal(value expression)
+scriptEngineResult* Equal(json expression)
 {
-	auto rez = new scriptEngineResult();
-	auto command = expression.ToObject();
+	auto result = new scriptEngineResult();
 
-	auto left = scriptEngine::Instance->Invoke("Expression", command[String("left")])->NumericResult;
-	auto right = scriptEngine::Instance->Invoke("Expression", command[String("right")])->NumericResult;
-	rez->LogicalResult = left == right;
+	int left, right;
+	tie(left, right) = GetLeftAndRight(expression);
 
-	return rez;
+	result->LogicalResult = left == right;
+
+	return result;
 }
 
 void logicalHandler::Register()

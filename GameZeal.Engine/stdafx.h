@@ -4,7 +4,9 @@
 #pragma once
 
 #include <string>
-#include <cpprest/json.h>
+#include <cmath>
+#include <tuple>
+#include "../Dependencies/json.hpp"
 
 #define RegisterHandler(n)  \
 { \
@@ -14,17 +16,20 @@
 
 #define Str2UTF8(value) to_utf8string(value)
 #define StringToInteger(value) atoi(value)
-#define String U
-#define ToObject as_object
-#define ToString as_string
-#define ToInteger as_integer
+#define String R
+#define ToObject get<json::object_t>
+#define ToString get<string>
+#define ToInteger get<int>
 #define Delegate typedef
 
 using namespace std;
-using namespace web::json;
+using namespace nlohmann;
+
 
 #include "scriptEngineResult.h"
 #include "scriptEngine.h"
+
+#include "utilities.hpp"
 
 #include "ifHandler.h"
 #include "announceHandler.h"

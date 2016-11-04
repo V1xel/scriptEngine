@@ -16,6 +16,12 @@
     <Filter Include="Schemas">
       <UniqueIdentifier>{482ad1da-8e61-45e6-b10f-8cbc0ee5dca2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Dependencies">
+      <UniqueIdentifier>{13bead5e-578e-4ec5-bc3f-4bac6a7d00a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities">
+      <UniqueIdentifier>{e3d55617-d48d-49a6-bcfd-6068a45568c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scriptEngine.h">
@@ -48,6 +54,9 @@
     <ClInclude Include="ifHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\Dependencies\json.hpp">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="numericHandler.cpp">
@@ -71,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="ifHandler.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities.hpp">
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +110,5 @@
     <None Include="..\Schemas\gameObjectExpression.json">
       <Filter>Schemas</Filter>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
 </Project>

@@ -1,18 +1,17 @@
 #include "stdafx.h"
 
-scriptEngineResult* If(value expression)
+scriptEngineResult* If(json expression)
 {
-	auto rez = new scriptEngineResult();
 	auto command = expression.ToObject();
 
-	auto condition = scriptEngine::Instance->Invoke("Expression", command[String("Condition")])->LogicalResult;
+	auto condition = scriptEngine::Instance->Invoke("Expression", command["Condition"])->LogicalResult;
 
-	if (condition && !command[String("OnTrue")].is_null())
-		return scriptEngine::Instance->Invoke("Expression", command[String("OnTrue")]);
+	if (condition && !command["OnTrue"].is_null())
+		return scriptEngine::Instance->Invoke("Expression", command["OnTrue"]);
 	
-	if(!condition && !command[String("OnFalse")].is_null())
+	if(!condition && !command["OnFalse"].is_null())
 	{
-		return scriptEngine::Instance->Invoke("Expression", command[String("OnFalse")]);
+		return scriptEngine::Instance->Invoke("Expression", command["OnFalse"]);
 	}
 
 	return nullptr;

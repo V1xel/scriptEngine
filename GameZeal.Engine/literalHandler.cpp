@@ -1,28 +1,27 @@
 #include "stdafx.h"
 
-scriptEngineResult* Literal(value expression)
+scriptEngineResult* Literal(json expression)
 {
-	auto rez = new scriptEngineResult();
-	rez->LiteralResult = Str2UTF8(expression.ToString());
-	return rez;
+	auto result = new scriptEngineResult();
+	result->LiteralResult = expression.ToString();
+	return result;
 }
 
-scriptEngineResult* ToLiteral(value expression)
+scriptEngineResult* ToLiteral(json expression)
 {
-	auto rez = new scriptEngineResult();
-	if (expression.is_integer())
+	auto result = new scriptEngineResult();
+
+	if (expression.is_number_integer())
 	{
-		stringstream ss;
-		ss << expression.ToInteger();
-		rez->LiteralResult = ss.str();
+		result->LiteralResult = to_string(expression.ToInteger());
 	}
 
 	if(expression.is_string())
 	{
-		rez->LiteralResult = Str2UTF8(expression.ToString());
+		result->LiteralResult = expression.ToString();
 	}
 	
-	return rez;
+	return result;
 }
 
 void literalHandler::Register()

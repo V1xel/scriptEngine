@@ -7,7 +7,7 @@
 class numericHandler 
 {
 public:
-	typedef void* (*NumericFunc)(value expression);
+	typedef void* (*NumericFunc)(json expression);
 
 	static void Register();
 };

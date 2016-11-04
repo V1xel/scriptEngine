@@ -13,7 +13,7 @@ public:
 		int NumericResult;
 		string LiteralResult;
 		bool LogicalResult;
-		value Expression;
+		json Expression;
 		ResultType Type;
 };
 

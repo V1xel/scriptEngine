@@ -1,36 +1,38 @@
 #include "stdafx.h"
 
 
-scriptEngineResult* GetGameObjectProperty(value expression)
+scriptEngineResult* GetGameObjectProperty(json expression)
 {
-	auto obj = expression.ToObject();
-	auto id = obj[String("Id")].ToInteger();
-	auto propertyName = obj[String("PropertyName")].ToString();
+	auto command = expression.ToObject();
+	int id = command["Id"];
+	auto propertyName = command["PropertyName"];
 
-	auto value = gameInformationProvider::getObjectProperty(id, Str2UTF8(propertyName));
+	auto value = gameInformationProvider::getObjectProperty(id, propertyName);
+
 	auto result = new scriptEngineResult();
 	result->LiteralResult = value;
 
 	return result;
 }
 
-scriptEngineResult* SetGameObjectProperty(value expression)
+scriptEngineResult* SetGameObjectProperty(json expression)
 {
-	auto obj = expression.ToObject();
+	
+	auto command = expression.ToObject();
 
-	auto id = obj[String("Id")].ToInteger();
-	auto propertyName = obj[String("PropertyName")].ToString();
-	auto value = scriptEngine::Instance->Invoke("Expression", obj[String("Value")]);
+	int id = command["Id"];
+	auto propertyName = command["PropertyName"];
+	auto value = scriptEngine::Instance->Invoke("Expression", command["Value"]);
 
 	if(value->LiteralResult.length()>0) // !todo replace with ResutType switch
 	{
-		gameInformationProvider::setObjectProperty(id, Str2UTF8(propertyName), value->LiteralResult);
+		gameInformationProvider::setObjectProperty(id, propertyName, value->LiteralResult);
 	}
 	else
 	{
-		gameInformationProvider::setObjectProperty(id, Str2UTF8(propertyName), value->NumericResult);
+		gameInformationProvider::setObjectProperty(id, propertyName, value->NumericResult);
 	}
-
+	
 	return nullptr;
 }
 

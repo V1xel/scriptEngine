@@ -1,18 +1,21 @@
 #include "stdafx.h"
 
-scriptEngineResult* Number(value expression)
+scriptEngineResult* Number(json expression)
 {
-	auto rez = new scriptEngineResult();
-	rez->NumericResult = expression.ToInteger();
-	return rez;
+	auto result = new scriptEngineResult();
+
+	result->NumericResult = expression;
+
+	return result;
 }
 
-scriptEngineResult* ToNumber(value expression)
+scriptEngineResult* ToNumber(json expression)
 {
 	scriptEngineResult* valueToConvert = nullptr;
+
 	for (auto value : expression.ToObject())
 	{
-		valueToConvert = scriptEngine::Instance->Invoke(Str2UTF8(value.first), value.second);
+		valueToConvert = scriptEngine::Instance->Invoke(value.first, value.second);
 		break;
 	}
 

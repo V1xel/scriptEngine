@@ -1,10 +1,10 @@
 #include "stdafx.h"
 
-scriptEngineResult* Announce(value expression)
+scriptEngineResult* Announce(json expression)
 {
-	auto obj = expression.ToObject();
-	cout << Str2UTF8(obj[String("EventName")].ToString()+ String(" ")+ obj[String("CallerId")].ToString());
-
+	auto command = expression.ToObject();
+	cout << command["EventName"] << " " << command["CallerId"];
+	
 	return nullptr;
 }
 

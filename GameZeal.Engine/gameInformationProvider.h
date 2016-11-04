@@ -7,9 +7,9 @@
 class gameInformationProvider
 {
 public:
-	static std::string gameInformationProvider::getObjectProperty(int id, std::string propertyName);
-	static void gameInformationProvider::setObjectProperty(int id, std::string propertyName, std::string value);
-	static void gameInformationProvider::setObjectProperty(int id, std::string propertyName, int value);
+	static string gameInformationProvider::getObjectProperty(int id, string propertyName);
+	static void gameInformationProvider::setObjectProperty(int id, string propertyName, string value);
+	static void gameInformationProvider::setObjectProperty(int id, string propertyName, int value);
 };
 
 #endif

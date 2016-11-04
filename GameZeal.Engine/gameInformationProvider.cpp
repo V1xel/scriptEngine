@@ -7,10 +7,10 @@ std::string gameInformationProvider::getObjectProperty(int id, string propertyNa
 
 void gameInformationProvider::setObjectProperty(int id, string propertyName, string value)
 {
-	cout << "setting " + propertyName + " : " + value;
+	cout << "setting " << propertyName << " : " << value;
 }
 
 void gameInformationProvider::setObjectProperty(int id, string propertyName, int value)
 {
-	cout << "setting " + propertyName + " : " + to_string(value);
+	cout << "setting " << propertyName + " : " << value;
 }
