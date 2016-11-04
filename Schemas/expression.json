@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "properties": {
+        "Expression": {
+            "description": "Default expression of any type",
+            "oneOf": [
+                { "$ref": "numericExpression.json#" },
+                { "$ref": "literalExpression.json#" },
+                { "$ref": "logicalExpression.json#" },
+                { "$ref": "branchExpression.json#" },
+                { "$ref": "thisExpression.json#" },
+                { "$ref": "globalExpression.json#" },
+                { "$ref": "objectExpression.json#" },
+                { "$ref": "patternExpression.json#" },
+                { "$ref": "batchExpression.json#" },
+                { "$ref": "announceExpression.json#" },
+                { "$ref": "interactionApiExpression.json#" }
+            ],
+            "properties": {
+                "Type": {
+                    "type": "string",
+                    "enum": [
+                        "NonInteractableExpression",
+                        "InteractableExpression"
+                    ]
+                }
+            },
+            "type": "object"
+        }
+    },
+    "type": "object"
+}

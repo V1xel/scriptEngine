@@ -25,6 +25,12 @@
     <Filter Include="Schemas\Testing">
       <UniqueIdentifier>{b53995f6-f369-4274-9e6b-a28ee13b6d54}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Schemas\DivinateOnline">
+      <UniqueIdentifier>{b79723fe-3dd0-4a8f-aaf9-b7e79587effe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Schemas\DivinateOnline\PatchA">
+      <UniqueIdentifier>{65302d60-a6bf-4a9c-9804-63d67bc67bf0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scriptEngine.h">
@@ -92,12 +98,6 @@
     <ClCompile Include="Console.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Schemas\card.json">
-      <Filter>Schemas</Filter>
-    </None>
-    <None Include="..\Schemas\expressions.json">
-      <Filter>Schemas</Filter>
-    </None>
     <None Include="..\Schemas\literalExpression.json">
       <Filter>Schemas</Filter>
     </None>
@@ -113,11 +113,35 @@
     <None Include="..\Schemas\announceExpression.json">
       <Filter>Schemas</Filter>
     </None>
-    <None Include="..\Schemas\gameObjectExpression.json">
-      <Filter>Schemas</Filter>
-    </None>
     <None Include="..\Schemas\Testing\buff.json">
       <Filter>Schemas\Testing</Filter>
+    </None>
+    <None Include="..\Schemas\expression.json">
+      <Filter>Schemas</Filter>
+    </None>
+    <None Include="..\Schemas\batchExpression.json">
+      <Filter>Schemas</Filter>
+    </None>
+    <None Include="..\Schemas\DivinateOnline\playCardFair.json">
+      <Filter>Schemas\DivinateOnline</Filter>
+    </None>
+    <None Include="..\Schemas\DivinateOnline\playCardUnfair.json">
+      <Filter>Schemas\DivinateOnline</Filter>
+    </None>
+    <None Include="..\Schemas\globalExpression.json">
+      <Filter>Schemas</Filter>
+    </None>
+    <None Include="..\Schemas\thisExpression.json">
+      <Filter>Schemas</Filter>
+    </None>
+    <None Include="..\Schemas\objectExpression.json">
+      <Filter>Schemas</Filter>
+    </None>
+    <None Include="..\Schemas\DivinateOnline\trillSilen.json">
+      <Filter>Schemas\DivinateOnline\PatchA</Filter>
+    </None>
+    <None Include="..\Schemas\patternExpression.json">
+      <Filter>Schemas</Filter>
     </None>
   </ItemGroup>
 </Project>

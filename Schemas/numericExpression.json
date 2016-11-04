@@ -8,10 +8,13 @@
         "ToNumber": {
             "oneOf": [
                 {
-                    "$ref": "expressions.json#"
+                    "$ref": "expression.json#"
                 }
             ],
             "type": "object"
+        },
+        "Increment": {
+            "type": "integer"
         }
     }
 }

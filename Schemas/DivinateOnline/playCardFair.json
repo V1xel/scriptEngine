@@ -1,0 +1,80 @@
+{
+    "$schema": "../expression.json",
+    "Expression": {
+        "If": {
+            "Condition": {
+                "And": {
+                    "left": {
+                        "ToBool": {
+                            "Expression": {
+                                "ThisInvokeFunction": {
+                                    "Function": "UserCanPay"
+                                }
+                            }
+                        }
+                    },
+                    "right": {
+                        "And": {
+                            "left": {
+                                "Equal": {
+                                    "left": {
+                                        "Expression": {
+                                            "ThisGetProperty": {
+                                                "Literal": "Location"
+                                            }
+                                        }
+                                    },
+                                    "right": {
+                                        "Expression": {
+                                            "Literal": "Hand"
+                                        }
+                                    }
+                                } // "Location" == "Hand"
+                            },
+                            "right": {
+                                "Equal": {
+                                    "left": {
+                                        "Expression": {
+                                            "GlobalGetProperty": {
+                                                "Literal": "Phase"
+                                            }
+                                        }
+                                    },
+                                    "right": {
+                                        "Expression": {
+                                            "Literal": "Yellow"
+                                        }
+                                    }
+                                }
+                            }
+                        } // "GamePhase" ==  "Yellow" && "Location" == "Hand"
+                    }
+                }
+            },
+            "OnTrue": {
+                "Expression": {
+                    "Type": "InteractableExpression",
+                    "Batch": [
+                        {
+                            "Expression": {
+                                "ThisInvokeFunction": {
+                                    "Function": "Move",
+                                    "Args": [ "Limb" ],
+                                    "Announce": true
+                                }
+                            }
+                        },
+                        {
+                            "Expression": {
+                                "ThisInvokeFunction": {
+                                    "Function": "Pay",
+                                    "Announce": false
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

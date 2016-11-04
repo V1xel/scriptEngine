@@ -5,14 +5,46 @@
         "Literal": {
             "type": "string"
         },
+        "Concat": {
+            "description": "Convert object to number",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "literalExpression.json#/Primitive"
+                }
+            ],
+            "properties": {
+                "Separator": {
+                    "enum": ["."]
+                } 
+            }
+        },
         "ToLiteral": {
             "description": "Convert object to number",
             "type": "object",
             "oneOf": [
                 {
-                    "$ref": "expressions.json#"
+                    "$ref": "expression.json#"
                 }
             ]
+        }
+    },
+    "Primitive": {
+        "properties": {
+            "left": {
+                "oneOf": [
+                    {
+                        "$ref": "expression.json#"
+                    }
+                ]
+            },
+            "right": {
+                "oneOf": [
+                    {
+                        "$ref": "expression.json#"
+                    }
+                ]
+            }
         }
     }
 }

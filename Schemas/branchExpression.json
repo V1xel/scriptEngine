@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-04/schema",
     "type": "object",
     "properties": {
-        "Branch": {
+        "If": {
             "type": "object",
             "properties": {
                 "Condition": {
@@ -21,7 +21,7 @@
                             "type": "object",
                             "oneOf": [
                                 {
-                                    "$ref": "expressions.json#"
+                                    "$ref": "expression.json#"
                                 }
                             ]
                         }
@@ -34,7 +34,7 @@
                             "type": "object",
                             "oneOf": [
                                 {
-                                    "$ref": "expressions.json#"
+                                    "$ref": "expression.json#"
                                 }
                             ]
                         }

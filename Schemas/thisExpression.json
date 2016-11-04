@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "properties": {
+        "ThisGetProperty": {
+            "oneOf": [{"$ref": "literalExpression.json#"}]
+        },
+        "ThisSetProperty": {
+            "type": "object",
+            "properties": {
+                "PropertyName": {
+                    "oneOf": [ { "$ref": "literalExpression.json#" } ]
+                },
+                "Value": {
+                    "type": "object",
+                    "oneOf": [ { "$ref": "expression.json#" } ]
+                }
+            }
+        },
+        "ThisInvokeFunction": {
+            "type": "object",
+            "properties": {
+                "Function": {
+                    "type": "string"
+                },
+                "Args": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "Announce": {
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}

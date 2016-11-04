@@ -2,6 +2,14 @@
     "$schema": "http://json-schema.org/draft-04/schema",
     "type": "object",
     "properties": {
+        "ToBool": {
+            "type": "object",
+            "oneOf": [
+                {
+                    "$ref": "expression.json#"
+                }
+            ]
+        } ,
         "GreaterThan": {
             "type": "object",
             "allOf": [
@@ -33,6 +41,42 @@
                     "$ref": "logicalExpression.json#/NumericPrimitive"
                 }
             ]
+        },
+        "And": {
+            "properties": {
+                "left": {
+                    "oneOf": [
+                        {
+                            "$ref": "logicalExpression.json#"
+                        }
+                    ]
+                },
+                "right": {
+                    "oneOf": [
+                        {
+                            "$ref": "logicalExpression.json#"
+                        }
+                    ]
+                }
+            }
+        },
+        "Or": {
+            "properties": {
+                "left": {
+                    "oneOf": [
+                        {
+                            "$ref": "logicalExpression.json#"
+                        }
+                    ]
+                },
+                "right": {
+                    "oneOf": [
+                        {
+                            "$ref": "logicalExpression.json#"
+                        }
+                    ]
+                }
+            }
         }
     },
     "NumericPrimitive": {
@@ -40,14 +84,14 @@
             "left": {
                 "oneOf": [
                     {
-                        "$ref": "numericExpression.json#"
+                        "$ref": "expression.json#"
                     }
                 ]
             },
             "right": {
                 "oneOf": [
                     {
-                        "$ref": "numericExpression.json#"
+                        "$ref": "expression.json#"
                     }
                 ]
             }

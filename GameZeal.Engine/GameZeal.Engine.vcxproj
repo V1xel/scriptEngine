@@ -173,20 +173,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Schemas\announceExpression.json" />
+    <None Include="..\Schemas\batchExpression.json" />
     <None Include="..\Schemas\branchExpression.json" />
-    <None Include="..\Schemas\card.json" />
-    <None Include="..\Schemas\expressions.json" />
-    <None Include="..\Schemas\gameObjectExpression.json" />
+    <None Include="..\Schemas\DivinateOnline\playCardFair.json" />
+    <None Include="..\Schemas\DivinateOnline\playCardUnfair.json" />
+    <None Include="..\Schemas\DivinateOnline\trillSilen.json" />
+    <None Include="..\Schemas\expression.json" />
+    <None Include="..\Schemas\globalExpression.json" />
     <None Include="..\Schemas\literalExpression.json" />
     <None Include="..\Schemas\logicalExpression.json" />
     <None Include="..\Schemas\numericExpression.json" />
+    <None Include="..\Schemas\objectExpression.json" />
+    <None Include="..\Schemas\patternExpression.json" />
     <None Include="..\Schemas\Testing\buff.json" />
+    <None Include="..\Schemas\thisExpression.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties __JSONSchema="expressions.json" />
+      <UserProperties />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

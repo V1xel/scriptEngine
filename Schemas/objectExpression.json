@@ -1,0 +1,35 @@
+﻿{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "properties": {
+        "ToObject": {
+            "oneOf": [
+                {
+                    "$ref": "expression.json#"
+                }
+            ],
+            "type": "object",
+            "properties": {
+                "GetProperty": {
+                    "type": "string"
+                },
+                "SetProperty": {
+                    "type": "object",
+                    "properties": {
+                        "PropertyName": {
+                            "type": "string"
+                        },
+                        "Value": {
+                            "type": "object",
+                            "oneOf": [
+                                {
+                                    "$ref": "expression.json#"
+                                }
+                            ]
+                        }
+                    }
+                } 
+            }
+        } 
+    }
+}

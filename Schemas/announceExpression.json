@@ -4,14 +4,9 @@
     "properties": {
         "Announce": {
             "type": "object",
-            "properties": {
-                "EventName":{
-                    "type": "string"
-                },
-                "CallerId":{
-                    "type": "integer"
-                }
-            }
+            "oneOf": [
+                { "$ref": "expression.json#" }
+            ]
         }
     }
 }

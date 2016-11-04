@@ -1,0 +1,25 @@
+{
+    "$schema": "../expression.json",
+    "Expression": {
+        "Batch": [
+            {
+                "Expression": {
+                    "Type": "InteractableExpression",
+                    "Pattern": "playCardFair"
+                }
+            },
+            {
+                "Expression": {
+                    "Type": "InteractableExpression",
+                    "Pattern": "playCardUnfair"
+                }
+            },
+            {
+                "Expression": {
+                    "Type": "InteractableExpression",
+                    
+                }
+            }
+        ]
+    }
+}

@@ -1,34 +1,37 @@
 {
-  "$schema": "./expressions.json",
-  "Expression": {
-    "Branch": {
-      "Condition": {
-        "GreaterThan": {
-          "left": {
-            "Number": 5
-          },
-          "right": {
-            "ToNumber": {
-              "Expression": {
-                "Literal": "25"
-              }
+    "$schema": "../expression.json",
+    "Expression": {
+        "If": {
+            "Condition": {
+                "Equal": {
+                    "left": {
+                        "Expression": {
+                            "ToObject": {
+                                "Expression": {
+                                    "ThisGetProperty": {
+                                        "Literal": ""
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "right": {
+                        "Expression": {
+                            "Literal": "Hand"
+                        }
+                    }
+                }
+            },
+            "OnTrue": {
+                "Expression": {
+                    "Type": "InteractableExpression",
+                    "InvokeGameObjectFunction": {
+                        "Function": "Move",
+                        "Args": [ "Arena" ],
+                        "Announce": true
+                    }
+                }
             }
-          }
         }
-      },
-      "OnTrue": {
-        "Expression": {
-          "SetGameObjectProperty": {
-            "Id": 1,
-            "PropertyName": "Location",
-            "Value": {
-              "Expression": {
-                "Literal": "Arena"
-              }
-            }
-          }
-        }
-      }
     }
-  }
 }

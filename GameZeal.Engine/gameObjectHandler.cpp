@@ -17,7 +17,6 @@ scriptEngineResult* GetGameObjectProperty(json expression)
 
 scriptEngineResult* SetGameObjectProperty(json expression)
 {
-	
 	auto command = expression.ToObject();
 
 	int id = command["Id"];
