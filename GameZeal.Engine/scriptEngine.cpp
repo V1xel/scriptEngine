@@ -2,21 +2,6 @@
 
 scriptEngine* scriptEngine::Instance;
 
-void main()
-{
-	scriptEngine::Instance = new scriptEngine();
-	scriptEngine::Instance->Init();
-
-	auto jsonBuilder = json::parse("{	\"Expression\":{	\"If\":{		\"Condition\":{	\"GreaterThan\":{		\"left\":{			\"Number\":55			},			\"right\":{		\"ToNumber\":{			\"Expression\":{		\"Literal\":\"25\"				}}	}	}	},		\"OnTrue\":{	\"Expression\":{	\"SetGameObjectProperty\": { \"Id\":1,   \"PropertyName\": \"Location\",		\"Value\" : {		\"Expression\": {		\"Literal\": \"Arena\"	}	}}		}	}	}	}}");
-	auto command = jsonBuilder["Expression"].ToObject();
-
-	for (auto value : command)
-	{
-		auto result = scriptEngine::Instance->Invoke(value.first, value.second);
-		system("pause");
-	}
-}
-
 scriptEngineResult* Expression(json expression)
 {
 	auto command = expression.ToObject();
@@ -43,7 +28,14 @@ void scriptEngine::Init()
 
 scriptEngineResult* scriptEngine::Invoke(string command, json expression)
 {
-	auto handlerPtr = Handlers.find(command)->second;
+	auto handler = Handlers.find(command);
+
+	if (handler == Handlers.end())
+	{
+		throw "Invalid handler detected";
+	}
+
+	auto handlerPtr = handler->second;
 
 	return (Handler(handlerPtr))(expression);
 }

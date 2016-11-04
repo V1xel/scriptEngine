@@ -161,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="announceHandler.cpp" />
+    <ClCompile Include="Console.cpp" />
     <ClCompile Include="ifHandler.cpp" />
     <ClCompile Include="gameInformationProvider.cpp" />
     <ClCompile Include="gameObjectHandler.cpp" />
@@ -179,6 +180,7 @@
     <None Include="..\Schemas\literalExpression.json" />
     <None Include="..\Schemas\logicalExpression.json" />
     <None Include="..\Schemas\numericExpression.json" />
+    <None Include="..\Schemas\Testing\buff.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

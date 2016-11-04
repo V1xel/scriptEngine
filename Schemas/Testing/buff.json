@@ -1,0 +1,34 @@
+{
+  "$schema": "./expressions.json",
+  "Expression": {
+    "Branch": {
+      "Condition": {
+        "GreaterThan": {
+          "left": {
+            "Number": 5
+          },
+          "right": {
+            "ToNumber": {
+              "Expression": {
+                "Literal": "25"
+              }
+            }
+          }
+        }
+      },
+      "OnTrue": {
+        "Expression": {
+          "SetGameObjectProperty": {
+            "Id": 1,
+            "PropertyName": "Location",
+            "Value": {
+              "Expression": {
+                "Literal": "Arena"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

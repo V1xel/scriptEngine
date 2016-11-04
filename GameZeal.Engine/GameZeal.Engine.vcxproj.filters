@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Utilities">
       <UniqueIdentifier>{e3d55617-d48d-49a6-bcfd-6068a45568c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Schemas\Testing">
+      <UniqueIdentifier>{b53995f6-f369-4274-9e6b-a28ee13b6d54}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scriptEngine.h">
@@ -68,7 +71,6 @@
     <ClCompile Include="logicalHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="scriptEngine.cpp" />
     <ClCompile Include="announceHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -84,6 +86,10 @@
     <ClCompile Include="utilities.hpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="scriptEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Console.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Schemas\card.json">
@@ -109,6 +115,9 @@
     </None>
     <None Include="..\Schemas\gameObjectExpression.json">
       <Filter>Schemas</Filter>
+    </None>
+    <None Include="..\Schemas\Testing\buff.json">
+      <Filter>Schemas\Testing</Filter>
     </None>
   </ItemGroup>
 </Project>
